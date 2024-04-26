@@ -16,8 +16,36 @@
       <input type="text" placeholder="Номер телефона" id="user-phone">
       <input type="text" placeholder="Адрес доставки" id="user-delivery">
       <input type="text" placeholder="Товар" id="user-product">
+      <div id="error"></div>
       <button id="order">Оформить</button>
     </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      let tg = window.Telegram.WebApp;
+      let order = document.getElementById('order');
+      tg.expand();
+
+      order.addEventListener("click", () => {
+        document.getElementById("error").innerText = '';
+        let name = document.getElementById("user-name").value;
+        let phone = document.getElementById("user-phone").value;
+        let delivery = document.getElementById("user-delivery").value;
+        let product = document.getElementById("user-product").value;
+        if(phone<10){
+          document.getElementById("error").innerText = 'Неправильно введен номер';
+          return;
+        }
+
+        let data = {
+          name: name,
+          phone: phone,
+          delivery: delivery,
+          product: product
+        }
+
+        tg.sendData(JSON.stringify(data))
+
+        tg.close();
+      })
+    </script>
   </div>
-</body>
-</html>
