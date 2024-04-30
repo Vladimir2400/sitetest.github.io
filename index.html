@@ -29,7 +29,7 @@
       order.addEventListener("click", () => {
         document.getElementById("error").innerText = '';
         let name = document.getElementById("user-name").value;
-        let tg_user = document.getElementById("tg-user-name").value;
+        let tg_userName = document.getElementById("tg-user-name").value;
         let phone = document.getElementById("user-phone").value;
         let delivery = document.getElementById("user-delivery").value;
         let product = document.getElementById("user-product").value;
@@ -42,7 +42,7 @@
           document.getElementById("error").innerText = 'Введите данные';
         }
 
-        if(tg_user<=0){
+        if(tg_userName<=0){
           document.getElementById("error").innerText = 'Введите данные';
         }
           
@@ -56,7 +56,7 @@
           
         let data = {
           name: name,
-          tg_user: tg_user,
+          tg_userName: tg_userName,
           phone: phone,
           delivery: delivery,
           product: product
