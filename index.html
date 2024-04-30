@@ -18,7 +18,7 @@
       <input type="text" placeholder="Адрес доставки" id="user-delivery">
       <input type="text" placeholder="Товар" id="user-product">
       <div id="error"></div>
-      <button id="order">Оформить</button>
+      <button type="button" id="order">Оформить</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -33,24 +33,24 @@
         let phone = document.getElementById("user-phone").value;
         let delivery = document.getElementById("user-delivery").value;
         let product = document.getElementById("user-product").value;
-        if(phone<10){
+        if(phone.length < 10){
           document.getElementById("error").innerText = 'Неправильно введен номер';
           return;
         }
           
-        if(name<=0){
+        if(!name){
           document.getElementById("error").innerText = 'Введите данные';
         }
 
-        if(tg_userName<=0){
+        if(!tg_userName){
           document.getElementById("error").innerText = 'Введите данные';
         }
           
-        if(delivery<=0){
+        if(!delivery){
           document.getElementById("error").innerText = 'Введите данные';
         }
 
-        if(product<=0){
+        if(!product){
           document.getElementById("error").innerText = 'Введите данные';
         }
           
